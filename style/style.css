@@ -1,0 +1,123 @@
+:root {
+    --primary: #6c64fb;
+    --accent-one: #748fc1;
+    --secondary: #533861;
+    --accent-two: #3e3b51;
+    --shade: #9e616b;
+    --highlight: #abaed3;
+    --text: #222;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    color: var(--text);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.city-bar {
+    position: relative;
+}
+
+.city {
+    outline: none;
+    width: 200px;
+}
+
+.shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    border: #f00 1px solid;
+    border-radius: 2px;
+    height: 18px;
+    width: 202px;
+    perspective: 1000px;
+}
+
+.city + label {
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    padding-inline: 2px;
+    background: #fff;
+    font-size: 16px;
+    color: var(--shade);
+    height: 10px;
+    cursor: text;
+}
+
+.city:focus + label {
+    transform: translateY(-10px);
+    font-size: 12px;
+}
+
+.city:not(:placeholder-shown) + label {
+    transform: translateY(-10px);
+    font-size: 12px;
+}
+
+.search-btn {
+    transition: background .1s ease;
+    width: 50px;
+    background: var(--primary);
+    border: var(--accent-two) 1px solid;
+    border-radius: 5px;
+}
+
+.search-btn:hover {
+    background: var(--accent-one);
+    transform: translateY(-1px);
+}
+
+.search-btn:active {
+    background: var(--primary);
+    transform: translateY(0);
+}
+
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.weather-container > * {
+    width: 500px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.city-name {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/*Shake animation*/
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
